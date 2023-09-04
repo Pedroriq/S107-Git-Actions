@@ -28,6 +28,6 @@ jobs:
         distribution: 'temurin'
         cache: maven
     - name: Testes com maven
-      run: 
+      run: | 
         cd Aula-GitHub-Actions
         mvn clean test site
