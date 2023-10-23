@@ -28,7 +28,7 @@ jobs:
         distribution: 'temurin'
         cache: maven
     - name: Testes com maven
-      run: | 
+      run: |
         cd Aula-GitHub-Actions
         mvn clean test site
 
@@ -38,10 +38,10 @@ jobs:
         name: relatorio-testes
         path: Aula-GitHub-Actions/target/site/
 
+
   empacotar:
 
     needs: test
-
     runs-on: ubuntu-latest
 
     steps:
@@ -53,7 +53,7 @@ jobs:
         distribution: 'temurin'
         cache: maven
     - name: Build com maven
-      run: | 
+      run: |
         cd Aula-GitHub-Actions
         mvn clean install
 
@@ -65,9 +65,19 @@ jobs:
 
   notificacao:
 
-    runs-on: ubunto-latest
+    runs-on: ubuntu-latest
+
+    env:
+      EMAIL_LIST: pedrohrsilveira@hotmail.com
 
     steps:
     - name: Executa comandos
       uses: actions/checkout@v3
-      run: sh scripts/shell.sh
+    - run: sh scripts/shell.sh
+ 
+        
+
+
+      
+
+
